@@ -61,3 +61,6 @@ Fraction Fraction::operator / (Fraction a) {
 bool Fraction::operator == (Fraction a) {
 	return (numerator == a.numerator && denominator == a.denominator) ? true: false;
 }
+bool Fraction::operator != (Fraction a) {
+	return (numerator != a.numerator || denominator != a.denominator) ? true : false;
+}

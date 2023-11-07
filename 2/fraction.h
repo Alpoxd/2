@@ -12,6 +12,7 @@ public:
     Fraction operator * (Fraction);
     Fraction operator / (Fraction);
     bool operator == (Fraction);
+    bool operator != (Fraction);
 private:
     int nodo(int, int);
 };

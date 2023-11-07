@@ -1,11 +1,13 @@
 #pragma once
 #include "dfraction.h"
+#include <vector>
 class vector {
 protected:
 	dFraction* vec;
 	int len;
 public:
 	vector(int);
+	vector(std::vector<float>);
 	vector(vector&);
 	vector(vector&&);
 	~vector();

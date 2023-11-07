@@ -8,6 +8,5 @@ public:
     dFraction(float);
     dFraction(Fraction);
     void print();
-private:
     void checkflag();
 };
