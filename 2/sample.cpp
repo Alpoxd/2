@@ -7,7 +7,7 @@
 void main(void) {
     setlocale(LC_ALL, "Ru");
     std::vector<float> input1 = { 20.2, 38.7, -21.32, -3.1, 6.43 };
-    std::vector<float> input2 = { -32.32, 43.42, 10000.2, 2, 3.212 };
+    std::vector<float> input2 = { -32.32, 9995.42, 10000.2, 2, 3.212 };
     std::vector<float> input3 = { 1, 3 }, input4 = { 1, 2 };
     vector v1(input1);
     vector v2(input2);

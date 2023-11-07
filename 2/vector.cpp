@@ -36,10 +36,7 @@ dFraction& vector::operator[](int i) {
 vector vector::operator + (vector& x) {
 	if (len != x.len) error("+: different size");
 	vector res(len);
-	for (int i = 0; i < len; i++) {
-		res[i] = el(i) + x[i];
-		res[i].checkflag();
-	}
+	for (int i = 0; i < len; i++) res[i] = el(i) + x[i];
 	return res;
 }
 vector vector::operator += (vector& x) {
@@ -51,10 +48,7 @@ vector vector::operator += (vector& x) {
 vector vector::operator - (vector& x) {
 	if (len != x.len) error("-: different size");
 	vector res(len);
-	for (int i = 0; i < len; i++) {
-		res[i] = el(i) - x[i];
-		res[i].checkflag();
-	}
+	for (int i = 0; i < len; i++) res[i] = el(i) - x[i];
 	return res;
 }
 void vector::operator = (vector& x) {
