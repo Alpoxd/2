@@ -8,6 +8,11 @@ public:
     dFraction(float);
     dFraction(Fraction);
     void print();
+    dFraction(int, int, int);
+    dFraction operator + (dFraction);
+    dFraction operator - (dFraction);
+    dFraction operator * (dFraction);
+    dFraction operator / (dFraction);
 private:
     void checkflag();
 };

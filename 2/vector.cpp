@@ -53,7 +53,7 @@ vector vector::operator - (vector& x) {
 }
 void vector::operator = (vector& x) {
 	if (this != &x) {
-		delete[] vec;
+		delete[] vec;//?
 		vec = new dFraction[x.len];
 		len = x.len;
 		for (int i = 0; i < len; i++) el(i) = x[i];
