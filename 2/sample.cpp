@@ -29,11 +29,11 @@ void main(void) {
     vector dif = v1 - v2;
     printf("\ndif:\n\n");
     dif.print();
-    v1 = v2;
+    v1 = v3;
     printf("\n============================\n\n");
     v1.print();
     printf("============================\n\n");
-    v2.print();
+    v3.print();
     printf("============================\n");
-    v1 == v2 ? printf("T") : printf("F");
+    v1 == v3 ? printf("T") : printf("F");
 }
