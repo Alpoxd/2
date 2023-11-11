@@ -13,6 +13,8 @@ public:
     dFraction operator - (dFraction);
     dFraction operator * (dFraction);
     dFraction operator / (dFraction);
+    bool operator == (dFraction);
+    bool operator != (dFraction);
 private:
     void checkflag();
 };

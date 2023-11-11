@@ -6,10 +6,11 @@ protected:
 	dFraction* vec;
 	int len;
 public:
+	vector();
 	vector(int);
 	vector(std::vector<float>);
 	vector(vector&);
-	vector(vector&&);
+	vector(vector&&) noexcept;
 	~vector();
 	inline int size() { return len; }
 	inline dFraction& el(int i) { return vec[i]; }
@@ -19,5 +20,7 @@ public:
 	vector operator + (vector&);
 	vector operator += (vector&);
 	vector operator - (vector&);
+	void push_back(dFraction);
 	void print();
+	void error(const char*);
 };

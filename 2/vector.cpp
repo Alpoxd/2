@@ -1,12 +1,18 @@
 #include <iostream>
 #include "vector.h"
 
-void error(const char* p) {
+void vector::error(const char* p) {
 	printf("\nError code: %s", p);
 	exit(EXIT_FAILURE);
 }
 void vector::print() {
+	printf("{");
 	for (int i = 0; i < size(); i++) el(i).print();
+	printf("}\n");
+}
+vector::vector() {
+	vec = nullptr;
+	len = 0;
 }
 vector::vector(int s) {
 	if (s <= 0) error("1");
@@ -20,14 +26,14 @@ vector::vector(std::vector<float> x) :vector(x.size()){
 vector::vector(vector& x) :vector(x.len) {
 	for (int i = 0; i < size(); i++) el(i) = x[i];
 }
-vector::vector(vector&& x) {
+vector::vector(vector&& x) noexcept {
 	vec = x.vec;
 	len = x.len;
 	x.vec = nullptr;
 	x.len = 0;
 }
 vector::~vector() {
-	delete[] vec;
+	if (vec != nullptr) delete[] vec;
 }
 dFraction& vector::operator[](int i) {
 	if (i < 0 || i > len - 1) error("3");
@@ -54,7 +60,7 @@ vector vector::operator - (vector& x) {
 void vector::operator = (vector& x) {
 	if (this != &x) {
 		if (len != x.len) {
-			delete[] vec;
+			if (vec != nullptr) delete[] vec;
 			vec = new dFraction[x.len];
 			len = x.len;
 		}
@@ -67,4 +73,13 @@ bool vector::operator == (vector& x) {
 		if (el(i) != x[i]) return false;
 	}
 	return true;
+}
+void vector::push_back(dFraction x) {
+	vector temp(len + 1);
+	for (int i = 0; i < len; i++) temp[i] = el(i);
+	delete[] vec;
+	len++;
+	vec = new dFraction[len];
+	for (int i = 0; i < len - 1; i++) el(i) = temp[i];
+	el(len - 1) = x;
 }

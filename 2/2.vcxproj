@@ -128,12 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="dfraction.cpp" />
+    <ClCompile Include="dvector.cpp" />
     <ClCompile Include="fraction.cpp" />
     <ClCompile Include="sample.cpp" />
     <ClCompile Include="vector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dfraction.h" />
+    <ClInclude Include="dvector.h" />
     <ClInclude Include="fraction.h" />
     <ClInclude Include="vector.h" />
   </ItemGroup>

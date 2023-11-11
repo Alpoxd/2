@@ -5,7 +5,7 @@
 void Fraction::print(void) {
 	float res = numerator;
 	res /= denominator;
-	printf("%d / %d [%0.3f]\n", numerator, denominator, res);
+	printf("  %d / %d [%0.3f];  ", numerator, denominator, res);
 }
 Fraction::Fraction() {
 	numerator = 0;

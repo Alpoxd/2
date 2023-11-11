@@ -50,3 +50,9 @@ dFraction dFraction::operator / (dFraction a) {
 	if (flag == 1 || a.flag == 1) return dFraction(numerator * a.denominator, denominator * a.numerator, 1);
 	else return dFraction(numerator * a.denominator, denominator * a.numerator, 0);
 }
+bool dFraction::operator == (dFraction a) {
+	return (numerator == a.numerator && denominator == a.denominator && flag == a.flag) ? true : false;
+}
+bool dFraction::operator != (dFraction a) {
+	return (numerator != a.numerator || denominator != a.denominator || flag != a.flag) ? true : false;
+}
