@@ -18,37 +18,25 @@ void dFraction::checkflag() {
 dFraction::dFraction() :Fraction() { flag = 0; }
 dFraction::dFraction(float value):Fraction(value) { checkflag(); }
 dFraction::dFraction(Fraction x):Fraction(x) { checkflag(); }
-dFraction::dFraction(int num, int den, int fl) :Fraction(num, den) {
+dFraction::dFraction(Fraction x, int fl) :Fraction(x) {
 	checkflag();
 	if (fl == 1) flag = fl;
 };
 dFraction dFraction::operator + (dFraction a) {
-	if (denominator == a.denominator) {
-		if (flag == 1 || a.flag == 1) return dFraction(numerator + a.numerator, denominator, 1);
-		else return dFraction(numerator + a.numerator, denominator, 0);
-	}
-	else {
-		if (flag == 1 || a.flag == 1) return dFraction(numerator * a.denominator + a.numerator * denominator, denominator * a.denominator, 1);
-		else return dFraction(numerator * a.denominator + a.numerator * denominator, denominator * a.denominator, 0);
-	}
+	if (flag == 1 || a.flag == 1) return dFraction((Fraction)a + (Fraction)*this, 1);
+	else return dFraction((Fraction)a + (Fraction)*this, 0);
 }
 dFraction dFraction::operator - (dFraction a) {
-	if (denominator == a.denominator) {
-		if (flag == 1 || a.flag == 1) return dFraction(numerator - a.numerator, denominator, 1);
-		else return dFraction(numerator - a.numerator, denominator, 0);
-	}
-	else {
-		if (flag == 1 || a.flag == 1) return dFraction(numerator * a.denominator - a.numerator * denominator, denominator * a.denominator, 1);
-		else return dFraction(numerator * a.denominator - a.numerator * denominator, denominator * a.denominator, 0);
-	}
+	if (flag == 1 || a.flag == 1) return dFraction((Fraction)a - (Fraction)*this, 1);
+	else return dFraction((Fraction)a - (Fraction)*this, 0);
 }
 dFraction dFraction::operator * (dFraction a) {
-	if (flag == 1 || a.flag == 1) return dFraction(a.numerator * numerator, a.denominator * denominator, 1);
-	else return dFraction(a.numerator * numerator, a.denominator * denominator, 0);
+	if (flag == 1 || a.flag == 1) return dFraction((Fraction)a * (Fraction)*this, 1);
+	else return dFraction((Fraction)a * (Fraction)*this, 0);
 }
 dFraction dFraction::operator / (dFraction a) {
-	if (flag == 1 || a.flag == 1) return dFraction(numerator * a.denominator, denominator * a.numerator, 1);
-	else return dFraction(numerator * a.denominator, denominator * a.numerator, 0);
+	if (flag == 1 || a.flag == 1) return dFraction((Fraction)a / (Fraction)*this, 1);
+	else return dFraction((Fraction)a / (Fraction)*this, 0);
 }
 bool dFraction::operator == (dFraction a) {
 	return (numerator == a.numerator && denominator == a.denominator && flag == a.flag) ? true : false;

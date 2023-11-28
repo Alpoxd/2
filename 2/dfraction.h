@@ -8,7 +8,7 @@ public:
     dFraction(float);
     dFraction(Fraction);
     void print();
-    dFraction(int, int, int);
+    dFraction(Fraction, int);
     dFraction operator + (dFraction);
     dFraction operator - (dFraction);
     dFraction operator * (dFraction);

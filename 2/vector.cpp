@@ -1,7 +1,7 @@
 #include <iostream>
 #include "vector.h"
 
-void vector::error(const char* p) {
+void error(const char* p) {
 	printf("\nError code: %s", p);
 	exit(EXIT_FAILURE);
 }
@@ -11,8 +11,8 @@ void vector::print() {
 	printf("}\n");
 }
 vector::vector() {
-	vec = nullptr;
-	len = 0;
+	vec = new dFraction[1];
+	len = 1;
 }
 vector::vector(int s) {
 	if (s <= 0) error("1");
@@ -33,7 +33,9 @@ vector::vector(vector&& x) noexcept {
 	x.len = 0;
 }
 vector::~vector() {
-	if (vec != nullptr) delete[] vec;
+	if (vec != nullptr) {
+		delete[] vec;
+	}
 }
 dFraction& vector::operator[](int i) {
 	if (i < 0 || i > len - 1) error("3");
