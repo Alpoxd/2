@@ -10,9 +10,8 @@ void vector::print() {
 	for (int i = 0; i < size(); i++) el(i).print();
 	printf("}\n");
 }
-vector::vector() {
+vector::vector() : len(1) {
 	vec = new dFraction[1];
-	len = 1;
 }
 vector::vector(int s) {
 	if (s <= 0) error("1");
@@ -33,9 +32,7 @@ vector::vector(vector&& x) noexcept {
 	x.len = 0;
 }
 vector::~vector() {
-	if (vec != nullptr) {
-		delete[] vec;
-	}
+	if (len != NULL and vec != nullptr) delete[] vec;
 }
 dFraction& vector::operator[](int i) {
 	if (i < 0 || i > len - 1) error("3");
@@ -60,7 +57,7 @@ vector vector::operator - (vector& x) {
 	return res;
 }
 void vector::operator = (vector& x) {
-	if (this != &x) {
+	if (vec != x.vec) {
 		if (len != x.len) {
 			if (vec != nullptr) delete[] vec;
 			vec = new dFraction[x.len];
@@ -84,4 +81,11 @@ void vector::push_back(dFraction x) {
 	vec = new dFraction[len];
 	for (int i = 0; i < len - 1; i++) el(i) = temp[i];
 	el(len - 1) = x;
+}
+void vector::setLen(int s)
+{
+	len = s;
+	vec = new dFraction[len];
+	for (int x = 0; x < len; x++)
+		vec[x] = dFraction();
 }

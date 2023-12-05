@@ -10,7 +10,10 @@ void main(void) {
     std::vector<float> input2 = { -32.32, 9995.42, 10000.2, 2, 3.212 };
     std::vector<float> input3 = { 1, 2, 3.2 }, input4 = { 1, 2 };
     std::vector<std::vector<float>> dinput = { { 1.5, -2.2, 20 }, { 4, 5, 6 }, { 7, 28, 9 } };
+    std::vector<std::vector<float>> dinput2 = { { 1.5, -2.2 }, { 4, 5, 6 }, { 7, 28, 9 } };
     matrix dv1(dinput);
+    matrix dv5(dinput2);
+    dv5.print();
     matrix dv2 = dv1;
     dv1.print();
     dv2.print();

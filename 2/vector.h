@@ -13,7 +13,7 @@ public:
 	vector(vector&&) noexcept;
 	~vector();
 	inline int size() { return len; }
-	inline dFraction* ptr() { return vec; }
+	void setLen(int);
 	inline dFraction& el(int i) { return vec[i]; }
 	dFraction& operator [] (int);
 	void operator = (vector&);

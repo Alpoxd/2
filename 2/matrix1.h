@@ -1,10 +1,9 @@
 #pragma once
-#include "dFraction.h"
+#include "vector.h"
 #include <vector>
 class matrix {
 protected:
 	dFraction** mat;
-	int col;
 	int row;
 public:
 	matrix();
@@ -13,9 +12,9 @@ public:
 	matrix(matrix&);
 	matrix(std::vector<std::vector<float>>);
 	~matrix();
+	inline int size() { return row; }
 	dFraction* operator [] (int);
 	void operator = (matrix&);
-	void operator = (std::vector<std::vector<float>>);
 	bool operator == (matrix&);
 	bool operator != (matrix&);
 	void print();

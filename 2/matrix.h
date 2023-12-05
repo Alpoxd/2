@@ -14,6 +14,7 @@ public:
 	inline int size() { return row; }
 	inline vector& el(int i) { return mat[i]; }
 	vector& operator [] (int);
+	void operator = (matrix&);
 	void push_back(vector);
 	void print();
 };
