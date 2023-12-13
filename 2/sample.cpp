@@ -5,7 +5,6 @@
 #include "matrix.h"
 
 void main(void) {
-    setlocale(LC_ALL, "Ru");
     std::vector<float> input1 = { 20.2, 38.7, -21.32, -3.1, 6.43 };
     std::vector<float> input2 = { -32.32, 9995.42, 10000.2, 2, 3.212 };
     std::vector<float> input3 = { 1, 2, 3.2 }, input4 = { 1, 2 };
@@ -21,8 +20,6 @@ void main(void) {
     matrix dv3;
     dv3.print();
     dv3 = dv2;
-    dv3.print();
-    dv3.push_back(input3);
     dv3.print();
     matrix dv4(2, 3);
     dv4.print();

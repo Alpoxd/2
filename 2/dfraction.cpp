@@ -23,20 +23,16 @@ dFraction::dFraction(Fraction x, int fl) :Fraction(x) {
 	if (fl == 1) flag = fl;
 };
 dFraction dFraction::operator + (dFraction a) {
-	if (flag == 1 || a.flag == 1) return dFraction((Fraction)a + (Fraction)*this, 1);
-	else return dFraction((Fraction)a + (Fraction)*this, 0);
+	return dFraction((Fraction)a + (Fraction)*this, flag || a.flag);
 }
 dFraction dFraction::operator - (dFraction a) {
-	if (flag == 1 || a.flag == 1) return dFraction((Fraction)a - (Fraction)*this, 1);
-	else return dFraction((Fraction)a - (Fraction)*this, 0);
+	return dFraction((Fraction)*this - (Fraction)a, flag || a.flag);
 }
 dFraction dFraction::operator * (dFraction a) {
-	if (flag == 1 || a.flag == 1) return dFraction((Fraction)a * (Fraction)*this, 1);
-	else return dFraction((Fraction)a * (Fraction)*this, 0);
+	return dFraction((Fraction)a * (Fraction)*this, flag || a.flag);
 }
 dFraction dFraction::operator / (dFraction a) {
-	if (flag == 1 || a.flag == 1) return dFraction((Fraction)a / (Fraction)*this, 1);
-	else return dFraction((Fraction)a / (Fraction)*this, 0);
+	return dFraction((Fraction)*this / (Fraction)a, flag || a.flag);
 }
 bool dFraction::operator == (dFraction a) {
 	return (numerator == a.numerator && denominator == a.denominator && flag == a.flag) ? true : false;

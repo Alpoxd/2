@@ -8,11 +8,12 @@ protected:
 public:
 	matrix();
 	matrix(int, int);
-	matrix(int);
 	matrix(matrix&);
 	matrix(std::vector<std::vector<float>>);
 	~matrix();
 	inline int size() { return row; }
+	//inline int len(int i) { return ((vector)(*this)[i]).size(); }
+	//inline dFraction* relocate(dFraction* x, int y) { delete[] x; return new dFraction[y]; }
 	dFraction* operator [] (int);
 	void operator = (matrix&);
 	bool operator == (matrix&);

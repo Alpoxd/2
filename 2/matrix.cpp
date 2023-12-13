@@ -22,11 +22,11 @@ matrix::matrix(std::vector<std::vector<float>> x) : matrix(x.size()) {
 		el(i) = temp;
 	}
 }
-vector& matrix::operator[](int i) {
+vector& matrix::operator [] (int i) {
 	if (i < 0 || i > row - 1) error("3");
 	return mat[i];
 }
-void matrix::operator=(matrix& x) {
+void matrix::operator = (matrix& x) {
 	if (mat != x.mat) {
 		if (row != x.row) {
 			if (mat != nullptr) delete[] mat;
@@ -40,7 +40,7 @@ void matrix::operator=(matrix& x) {
 	}
 }
 matrix::~matrix() {
-	if (row != NULL and mat != nullptr) delete[] mat;
+	if (mat != nullptr) delete[] mat;
 }
 void matrix::print() {
 	printf("{\n");
